@@ -68,14 +68,12 @@ class ProcessController < ApplicationController
         # that we'll save here shortly
         file = StringIO.new(attachment.body.decoded)
 
-        # does this user already exist?
-        if User.where("EMAIL = '#{@@email}'").exists?
-          user_id = User.where("EMAIL = '#{@@email}'").last.ID
-        else
-          user_id = User.save_user(@@first_name, @@last_name, @@email, @@phone)
-        end
+        # put your user logic here? who does this attachment belong to? I'm hardcoding something 
+        # just to make it work
+        user_id = 4
 
-        user_resume = resume.save_resume(user_id, file)
+        
+        attachment = attachment.save_attachment(user_id, file)
         
         return user_id
       end
