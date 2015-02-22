@@ -1,0 +1,19 @@
+== Using Rails to access a mailbox and save attachments to S3
+
+This is a simple project that will use IMAP to connect to a gmail mailbox, loop through all unread messages in an inbox, and save any attachments to S3. 
+
+== Things you'll need to do:
+
+* Update your database.yml file with whatever database you're using
+
+* Create a model that houses the paperclip attachment (for this sample code I used something called Attachment)
+
+* Update your /config/development.rb and /config/production.rb. you'll need to get S3 creds from amazon. I won't tell you how to do that b/c GOOGLE
+
+* other things I'm probably forgetting
+
+== How this thing wrks
+
+* Most of the code is contained in controllers/process_controller.rb
+
+* The app is fired up, polls a mailbox, and saves the attachments
